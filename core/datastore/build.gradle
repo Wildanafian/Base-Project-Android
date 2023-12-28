@@ -1,0 +1,12 @@
+apply plugin: libs.plugins.android.library.get().getPluginId()
+apply from: "$rootProject.projectDir/tools/baseDependency.gradle"
+
+android {
+    namespace 'core.datastore'
+}
+
+dependencies {
+
+    implementation libs.securityCrypto
+
+}

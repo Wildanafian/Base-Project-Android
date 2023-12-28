@@ -1,0 +1,57 @@
+apply plugin: libs.plugins.android.application.get().getPluginId()
+apply from: "$rootProject.projectDir/tools/baseDependency.gradle"
+//apply plugin: 'com.google.gms.google-services'
+//apply plugin: 'com.google.firebase.crashlytics'
+
+android {
+    namespace "com.base.mvvm"
+
+    defaultConfig {
+        applicationId "com.base.mvvm"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        versionCode libs.versions.versionCodeApp.get().toInteger()
+        versionName libs.versions.versionNameApp.get()
+    }
+
+    buildTypes {
+        release {
+            shrinkResources true
+        }
+        debug {
+            applicationVariants.all { variant ->
+                variant.outputs.all {
+                    outputFileName = "Version ${libs.versions.versionNameApp.get()} DEV.apk"
+                }
+            }
+            ext.alwaysUpdateBuildId = false
+//            firebaseCrashlytics {
+//                mappingFileUploadEnabled = false
+//            }
+        }
+    }
+
+    buildFeatures {
+        buildConfig = true
+    }
+}
+
+dependencies {
+
+    implementation project(path: ':feature:entryPoint')
+    implementation project(path: ':feature:auth')
+    implementation project(path: ':feature:home')
+    implementation project(path: ':feature:profile')
+
+//    implementation platform(libs.firebase)
+//    implementation libs.crashlytics
+
+    implementation libs.timber
+
+    kover(project(':feature:entryPoint'))
+    kover(project(':feature:auth'))
+    kover(project(':feature:home'))
+    kover(project(':feature:profile'))
+    kover(project(':data'))
+    kover(project(':domain'))
+
+}

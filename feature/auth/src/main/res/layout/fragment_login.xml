@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:padding="@dimen/space_normal">
+
+            <TextView
+                android:id="@+id/tv_Header"
+                style="@style/text_header_bold_black"
+                android:layout_marginTop="@dimen/size_jumbo"
+                android:gravity="center" />
+
+            <TextView
+                style="@style/text_xxxlarge_bold_black"
+                android:layout_marginTop="@dimen/size_xxxxsuper"
+                android:text="@string/login" />
+
+            <RelativeLayout
+                android:id="@+id/container_email"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_xxxlarge"
+                android:layout_marginTop="@dimen/space_large"
+                android:background="@drawable/bg_white_border_gray_r10"
+                android:padding="2dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txt_email"
+                    style="@style/roundedEditText"
+                    android:layout_height="match_parent"
+                    android:hint="@string/e_mail">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="textEmailAddress"
+                        tools:text="00000000000066688" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/container_password"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_xxxlarge"
+                android:layout_marginTop="@dimen/space_large"
+                android:background="@drawable/bg_white_border_gray_r10"
+                android:padding="2dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txt_password"
+                    style="@style/roundedEditText"
+                    android:layout_height="match_parent"
+                    android:hint="@string/password"
+                    app:hintEnabled="true"
+                    app:passwordToggleDrawable="@drawable/selector_eye"
+                    app:passwordToggleEnabled="true"
+                    app:passwordToggleTint="@color/gray">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="textEmailAddress"
+                        tools:text="123456" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/btn_enter"
+                style="@style/button_medium_medium_primary"
+                android:layout_marginTop="@dimen/space_jumbo"
+                android:layout_marginBottom="@dimen/size_xxxlarge"
+                android:stateListAnimator="@null"
+                android:text="@string/login" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/tvRegisterHere"
+        style="@style/text_normal_medium_black"
+        android:layout_marginBottom="@dimen/space_normal"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

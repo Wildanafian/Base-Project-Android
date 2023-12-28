@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Modular</string>
+
+    <string name="no_internet">Tidak ada koneksi internet tersedia, periksa kembali koneksi anda</string>
+    <string name="logout">Logout</string>
+    <string name="kembali">Kembali</string>
+    <string name="keluar">Keluar</string>
+    <string name="tidak">Tidak</string>
+    <string name="success">Success</string>
+    <string name="ya">Ya</string>
+    <string name="name">Nama</string>
+    <string name="home">Home</string>
+    <string name="profil">Profil</string>
+    <string name="this_is_image">this is image</string>
+    <string name="simpan">Simpan</string>
+    <string name="ubah_profile">Ubah Profile</string>
+    <string name="nama_lengkap">Nama Lengkap</string>
+    <string name="e_mail">E-mail</string>
+    <string name="password">Password</string>
+    <string name="login">Login  </string>
+    <string name="register_here"><![CDATA[<font color=#3C3C3C>Dont have account? </font><font color=#5F5EC8>Register here</font>]]></string>
+    <string name="header"><![CDATA[<font color=#3C3C3C>Team </font><font color=#5F5EC8>Sphere</font>]]></string>
+    <string name="register">Register</string>
+    <string name="retype_password">Retype Password</string>
+    <string name="submit">Submit</string>
+
+</resources>

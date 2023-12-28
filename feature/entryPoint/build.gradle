@@ -1,0 +1,14 @@
+apply from: "$rootProject.projectDir/tools/baseFeatureDependency.gradle"
+
+android {
+    namespace "feature.entryPoint"
+    buildFeatures {
+        buildConfig = true
+    }
+}
+
+dependencies {
+
+    implementation libs.splashScreen
+
+}

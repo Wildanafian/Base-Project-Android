@@ -1,0 +1,31 @@
+apply plugin: libs.plugins.android.library.get().getPluginId()
+apply from: "$rootProject.projectDir/tools/baseDependency.gradle"
+
+android {
+    namespace 'core.network'
+    buildTypes {
+        release {
+            buildConfigField "String", "BASE_URL", "\"https://some-url/\""
+        }
+        staging {
+            buildConfigField "String", "BASE_URL", "\"https://some-url/\""
+        }
+        debug {
+            buildConfigField "String", "BASE_URL", "\"https://some-url/\""
+        }
+    }
+    buildFeatures {
+        buildConfig = true
+    }
+}
+
+dependencies {
+
+    implementation project(path: ':core:model')
+    implementation project(path: ':core:datastore')
+
+    implementation libs.retrofitConverter
+    implementation libs.retrofitScalars
+    implementation libs.okhttp3Interceptor
+
+}

@@ -1,0 +1,34 @@
+apply plugin: libs.plugins.android.library.get().getPluginId()
+apply from: "$rootProject.projectDir/tools/baseDependency.gradle"
+apply plugin: libs.plugins.navigation.safeargs.plugin.get().getPluginId()
+
+android {
+    defaultConfig {
+        vectorDrawables.useSupportLibrary = true
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation project(path: ':core:common')
+    implementation project(path: ':core:navigation')
+    implementation project(path: ':core:ui')
+    implementation project(path: ':domain')
+    implementation project(path: ':core:model')
+
+    implementation libs.coroutineAndroid
+    implementation libs.fragmentKtx
+    implementation libs.bundles.navigation
+    implementation libs.material
+    implementation libs.swiperefreshlayout
+
+
+    implementation libs.espressoIdlingResource
+    androidTestImplementation libs.bundles.androidTest
+    debugImplementation libs.fragmentTesting
+
+    testImplementation libs.bundles.unitTest
+}

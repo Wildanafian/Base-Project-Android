@@ -1,0 +1,17 @@
+apply plugin: libs.plugins.android.library.get().getPluginId()
+apply from: "$rootProject.projectDir/tools/baseDependency.gradle"
+
+android {
+    namespace 'core.domain'
+}
+
+dependencies {
+
+    implementation project(path: ':data')
+    implementation project(path: ':core:model')
+
+    implementation libs.coroutineAndroid
+
+    testImplementation libs.bundles.unitTest
+
+}

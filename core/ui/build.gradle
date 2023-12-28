@@ -1,0 +1,57 @@
+plugins {
+    id 'com.google.devtools.ksp' version '1.8.10-1.0.9' apply false
+}
+apply plugin: libs.plugins.android.library.get().getPluginId()
+apply plugin: libs.plugins.jetbrains.kotlin.plugin.get().getPluginId()
+
+android {
+    namespace 'core.ui'
+    compileSdkVersion libs.versions.compileSDK.get().toInteger()
+    defaultConfig {
+        minSdkVersion libs.versions.minSDK.get().toInteger()
+        targetSdkVersion libs.versions.targetSDK.get().toInteger()
+        versionCode libs.versions.versionCode.get().toInteger()
+        versionName libs.versions.versionName.get()
+        vectorDrawables.useSupportLibrary = true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+
+    buildFeatures {
+        buildConfig = true
+        viewBinding true
+    }
+
+    lintOptions {
+        disable 'Overdraw'
+        quiet true
+        abortOnError false
+        warningsAsErrors true
+        checkDependencies true
+        xmlReport true
+        htmlReport true
+        htmlOutput file("${project.rootDir}/build/reports/lint-results-debug.html")
+    }
+
+}
+
+dependencies {
+
+    implementation libs.coroutineAndroid
+
+    implementation libs.navigationFragment
+
+    implementation libs.glide
+
+    implementation libs.material
+    implementation libs.swiperefreshlayout
+
+    implementation libs.espressoIdlingResource
+
+}

@@ -1,0 +1,17 @@
+apply plugin: libs.plugins.android.library.get().getPluginId()
+apply from: "$rootProject.projectDir/tools/baseDependency.gradle"
+
+android {
+    namespace 'core.common'
+    buildFeatures {
+        buildConfig = true
+    }
+}
+
+dependencies {
+
+    implementation libs.coroutineAndroid
+    implementation libs.gson
+    implementation libs.timber
+
+}

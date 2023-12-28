@@ -1,0 +1,43 @@
+apply plugin: 'org.jetbrains.kotlinx.kover'
+
+koverReport {
+
+    defaults {
+        mergeWith("debug")
+    }
+
+    filters {
+        excludes {
+            classes(
+                    "*Fragment*",
+                    "*Fragment.*",
+                    "*Activity*",
+                    "*.databinding.*",
+                    "*Factory*",
+                    "*Hilt*",
+                    "*_HiltModules_.*",
+                    "*HiltModules*",
+                    "*GeneratedInjector*",
+                    "*.BuildConfig",
+                    "dagger\\.hilt\\..*",
+                    "**.hilt_aggregated_deps",
+                    "*Provide*",
+                    "Provide*",
+                    "*_MembersInjector*",
+                    "*Const*",
+                    "*Adapter*",
+                    "*BottomSheet*",
+                    "*Dialog*",
+                    "*FirebaseMessaging*",
+                    "*MainApp*",
+                    "**/adapter/*",
+                    "**/adapter/**",
+                    "**/adapter/",
+                    "**/ui/*Adapter",
+                    "**/ui/*Fragment",
+            )
+        }
+    }
+
+    androidReports("debug") {}
+}

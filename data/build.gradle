@@ -1,0 +1,24 @@
+apply plugin: libs.plugins.android.library.get().getPluginId()
+apply from: "$rootProject.projectDir/tools/baseDependency.gradle"
+
+android {
+    namespace 'core.data'
+}
+
+dependencies {
+
+    implementation project(path: ':core:common')
+    implementation project(path: ':core:network')
+    implementation project(path: ':core:datastore')
+    implementation project(path: ':core:model')
+
+    implementation libs.coroutineAndroid
+
+    implementation libs.retrofitConverter
+
+    implementation platform(libs.firebase)
+    implementation libs.fcm
+
+    testImplementation libs.bundles.unitTest
+
+}

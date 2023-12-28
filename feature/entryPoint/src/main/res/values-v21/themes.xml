@@ -1,0 +1,9 @@
+<resources>
+
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen.IconBackground">
+        <item name="postSplashScreenTheme">@style/Theme.BaseApp</item>
+        <item name="android:windowBackground">@color/green_splash</item>
+        <item name="android:statusBarColor">@color/green_splash</item>
+        <item name="android:navigationBarColor">@color/green_splash</item>
+    </style>
+</resources>

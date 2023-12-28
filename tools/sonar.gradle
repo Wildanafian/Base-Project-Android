@@ -1,0 +1,42 @@
+apply plugin: "org.sonarqube"
+
+sonarqube {
+    properties {
+        property "sonar.projectName", "-"
+        property "sonar.projectKey", "-"
+        property "sonar.host.url", "-"
+        property "sonar.token", "-"
+        property "sonar.coverage.jacoco.xmlReportPaths", "${rootProject.getRootDir().absolutePath}/app/build/reports/kover/reportDebug.xml"
+        property "sonar.androidLint.reportPaths", "${rootProject.getRootDir().absolutePath}/app/build/reports/lint-results-debug.xml"
+        property "sonar.coverage.exclusions", "**Fragment**," +
+                " **Adapter**, **Sheet**, **Activity**, **.databinding.**," +
+                " **Factory**, **Hilt**, **HiltModules**, **GeneratedInjector**," +
+                " **BuildConfig, **Provide**, **MembersInjector**, **Const**, " +
+                " **BottomSheet**, **Helper**, **Listener**, **Firebase**, " +
+                " **Dialog**"
+    }
+}
+
+project(":app") {
+    sonar {
+        skipProject = true
+    }
+}
+
+project(":core:common") {
+    sonar {
+        skipProject = true
+    }
+}
+
+project(":core:model") {
+    sonar {
+        skipProject = true
+    }
+}
+
+project(":core:navigation") {
+    sonar {
+        skipProject = true
+    }
+}

@@ -1,0 +1,75 @@
+apply plugin: libs.plugins.jetbrains.kotlin.plugin.get().getPluginId()
+apply plugin: libs.plugins.kotlin.kapt.plugin.get().getPluginId()
+apply plugin: libs.plugins.hilt.plugin.get().getPluginId()
+apply from: "$rootProject.projectDir/tools/kover.gradle"
+apply plugin: "io.gitlab.arturbosch.detekt"
+
+task createReportToSonar(type: GradleBuild) {
+    dependsOn('lint')
+    dependsOn('koverXmlReportDebug')
+    dependsOn('sonar')
+}
+
+android {
+    compileSdkVersion libs.versions.compileSDK.get().toInteger()
+    defaultConfig {
+        minSdkVersion libs.versions.minSDK.get().toInteger()
+        targetSdkVersion libs.versions.targetSDK.get().toInteger()
+        versionCode libs.versions.versionCode.get().toInteger()
+        versionName libs.versions.versionName.get()
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            debuggable false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        staging {
+            initWith release
+            debuggable true
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            testCoverageEnabled true
+        }
+    }
+
+    kapt {
+        useBuildCache = true
+        correctErrorTypes = true
+        generateStubs = false
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+
+    lintOptions {
+        disable 'Overdraw'
+        quiet true
+        abortOnError false
+        warningsAsErrors true
+        checkDependencies true
+        xmlReport true
+        htmlReport true
+        htmlOutput file("${project.rootDir}/build/reports/lint-results-debug.html")
+    }
+
+}
+
+dependencies {
+
+    implementation libs.hiltAndroid
+    kapt libs.hiltKapt
+
+}

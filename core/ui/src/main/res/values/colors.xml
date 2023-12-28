@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="primary">#5F5EC8</color>
+    <color name="secondary">#AFAEFD</color>
+    <color name="secondary_2">#BFBEF1</color>
+
+    <color name="black">#3C3C3C</color>
+
+    <color name="gray">#9B9B9B</color>
+    <color name="gray_border">#BFBFBF</color>
+    <color name="gray_border_10">#1ABFBFBF</color>
+    <color name="gray_edittext">#F6F6F6</color>
+    <color name="gray_separator">#EBEBEB</color>
+    <color name="gray_toolbar">#676767</color>
+
+    <color name="red">#A01F27</color>
+    <color name="redhot">#FF0000</color>
+    <color name="redish">#FFF7F7</color>
+    <color name="pinkist">#F7F7F7</color>
+
+    <color name="green_splash">#FEFFE5</color>
+    <color name="green_fresh">#AADE87</color>
+    <color name="green_fresh_rv">#F4FFFB</color>
+    <color name="green_profile">#F8F8F8</color>
+
+    <color name="white">#FFFFFFFF</color>
+
+</resources>
